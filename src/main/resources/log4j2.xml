@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration status="ERROR" monitorInterval="30">
+    <properties>
+        <property name="E3_LOG_LEVEL">ERROR</property>
+        <property name="E3_LOG_DIR">${sys:catalina.home}/logs</property>
+    </properties>
+    <appenders>
+        <File name="e3_bpm_log" fileName="${E3_LOG_DIR}/e3_bpm.log" append="true">
+            <PatternLayout pattern="%-5.5p %d{yyyy-MM-dd HH:mm:ss} %l %m%n"/>
+        </File>
+    </appenders>
+    <loggers>
+        <logger name="org.springframework" level="${E3_LOG_LEVEL}"></logger>
+        <logger name="org.mybatis" level="${E3_LOG_LEVEL}"></logger>
+        <logger name="java.sql" level="${E3_LOG_LEVEL}"></logger>
+        <logger name="com.mysql" level="${E3_LOG_LEVEL}"></logger>
+        <logger name="org.apache.activemq" level="${E3_LOG_LEVEL}"></logger>
+        <root level="${E3_LOG_LEVEL}">
+            <appender-ref ref="e3_bpm_log"/>
+        </root>
+    </loggers>
+</configuration>
